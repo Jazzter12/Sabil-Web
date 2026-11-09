@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabil - Jasa Konstruksi & Elektronik Profesional</title>
+    <title>Sabil - Jasa Konstruksi, Optik, & Servis Elektronik</title>
     <!-- Google Fonts & FontAwesome untuk Ikon -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -38,36 +38,42 @@
             border-bottom: 4px solid var(--gold);
         }
 
+        /* Desain Logo Baru (Memanjang menampung 3 ikon) */
         .logo-container {
-            width: 80px;
-            height: 80px;
-            background: var(--gold);
-            color: var(--primary-green);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
-            font-weight: bold;
-            border-radius: 50%;
+            gap: 12px;
+            background: var(--gold);
+            color: var(--primary-green);
+            padding: 15px 30px;
+            border-radius: 50px;
             margin: 0 auto 15px auto;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 26px;
         }
 
+        /* Desain Judul SABIL (atas) Build & Service (bawah) */
         header h1 {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             color: #ffffff;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            line-height: 1.2;
         }
 
         header h1 span {
             color: var(--gold);
+            font-size: 20px;
+            letter-spacing: 1px;
+            display: block;
+            margin-top: 5px;
         }
 
         header p {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--light-gold);
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .container {
@@ -78,7 +84,7 @@
 
         .section-title {
             text-align: center;
-            margin: 30px 0 20px 0;
+            margin: 20px 0 25px 0;
             font-size: 20px;
             color: var(--primary-green);
             position: relative;
@@ -93,76 +99,108 @@
             margin: 8px auto 0 auto;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-
-        @media (min-width: 600px) {
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .service-card {
+        /* Desain Dropdown (Accordion) Menu */
+        details.service-card {
             background: white;
-            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-left: 5px solid var(--gold);
-            transition: transform 0.2s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .service-card i {
-            font-size: 28px;
-            color: var(--primary-green);
-            margin-bottom: 10px;
-        }
-
-        .service-card h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-
-        .service-card p {
-            font-size: 13px;
-            color: #666;
-        }
-
-        .cta-section {
-            background: white;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .cta-section p {
-            font-size: 14px;
             margin-bottom: 15px;
-            color: #444;
+            overflow: hidden;
         }
 
+        details.service-card summary {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none; /* Menyembunyikan panah bawaan browser */
+        }
+
+        details.service-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .summary-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .summary-content i {
+            font-size: 24px;
+            color: var(--primary-green);
+            width: 30px;
+            text-align: center;
+        }
+
+        .summary-content h3 {
+            font-size: 16px;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .arrow {
+            color: #999;
+            transition: transform 0.3s ease;
+        }
+
+        /* Putar panah saat dropdown dibuka */
+        details[open] summary .arrow {
+            transform: rotate(180deg);
+            color: var(--primary-green);
+        }
+
+        /* Isi konten di dalam dropdown */
+        .details-content {
+            padding: 0 20px 20px 20px;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 5px;
+            padding-top: 15px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .details-content ul {
+            list-style-type: none; /* Hilangkan titik bawaan agar ikon rapi */
+            margin-bottom: 20px;
+        }
+
+        .details-content li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .details-content li i {
+            color: var(--gold);
+            font-size: 12px;
+            margin-top: 4px;
+            margin-right: 10px;
+        }
+
+        /* Tombol WhatsApp Spesifik */
         .whatsapp-btn {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             background-color: #25D366;
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 12px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
             transition: background 0.2s;
+            width: 100%; /* Penuh kiri kanan */
         }
 
         .whatsapp-btn i {
@@ -187,54 +225,87 @@
 <body>
 
     <header>
+        <!-- Logo Rumah, Kacamata, Gadget -->
         <div class="logo-container">
             <i class="fa-solid fa-house-chimney"></i>
+            <i class="fa-solid fa-glasses"></i>
+            <i class="fa-solid fa-laptop"></i>
         </div>
-        <h1>SABIL <span>BUILD & SERVICE</span></h1>
-        <p>Solusi Profesional Konstruksi, Renovasi, & Perbaikan Elektronik</p>
+        <!-- Tulisan SABIL di atas, BUILD & SERVICE di bawah -->
+        <h1>SABIL<br><span>BUILD & SERVICE</span></h1>
+        <p>Solusi Konstruksi, Optik, & Servis Elektronik</p>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Layanan Utama Kami</h2>
+        <h2 class="section-title">Layanan Kami</h2>
+        <p style="text-align: center; font-size: 13px; color: #666; margin-bottom: 20px;">Ketuk layanan di bawah ini untuk melihat detail</p>
 
-        <div class="services-grid">
-            <!-- Layanan 1 -->
-            <div class="service-card">
-                <i class="fa-solid fa-helmet-safety"></i>
-                <h3>Bangun & Renovasi Rumah</h3>
-                <p>Pengerjaan pembangunan rumah dari nol, renovasi total atau sebagian dengan standar kualitas konstruksi terbaik.</p>
+        <!-- KATEGORI 1: RENOVASI & BANGUNAN -->
+        <details class="service-card">
+            <summary>
+                <div class="summary-content">
+                    <i class="fa-solid fa-trowel-bricks"></i>
+                    <h3>Bangunan & Renovasi</h3>
+                </div>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </summary>
+            <div class="details-content">
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Bangun dari nol</li>
+                    <li><i class="fa-solid fa-check"></i> Instalasi listrik</li>
+                    <li><i class="fa-solid fa-check"></i> Kusen Alumunium</li>
+                    <li><i class="fa-solid fa-check"></i> Rangka atap baja ringan</li>
+                    <li><i class="fa-solid fa-check"></i> Partisi & plafon</li>
+                </ul>
+                <a href="https://wa.me/6289658818868?text=Halo%20Sabil,%20saya%20ingin%20konsultasi%20mengenai%20jasa%20Bangunan%20dan%20Renovasi." class="whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (Renovasi)
+                </a>
             </div>
+        </details>
 
-            <!-- Layanan 2 -->
-            <div class="service-card">
-                <i class="fa-solid fa-warehouse"></i>
-                <h3>Rangka Atap Baja Ringan</h3>
-                <p>Spesialis pemasangan struktur atap baja ringan yang kokoh, rapi, presisi, dan tahan lama untuk hunian Anda.</p>
+        <!-- KATEGORI 2: OPTIK KACAMATA -->
+        <details class="service-card">
+            <summary>
+                <div class="summary-content">
+                    <i class="fa-solid fa-glasses"></i>
+                    <h3>Layanan Optik</h3>
+                </div>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </summary>
+            <div class="details-content">
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Pemesanan kacamata minus & plus</li>
+                    <li><i class="fa-solid fa-check"></i> Photochromic & bluechromic</li>
+                    <li><i class="fa-solid fa-check"></i> Antiradiasi HP & komputer</li>
+                    <li><i class="fa-solid fa-check"></i> Kacamata anti air (element)</li>
+                    <li><i class="fa-solid fa-check"></i> Kacamata gaya juga ada</li>
+                </ul>
+                <a href="https://wa.me/6289658818868?text=Halo%20Sabil,%20saya%20ingin%20pesan/tanya%20mengenai%20Layanan%20Optik%20Kacamata." class="whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (Optik)
+                </a>
             </div>
+        </details>
 
-            <!-- Layanan 3 -->
-            <div class="service-card">
-                <i class="fa-solid fa-bolt"></i>
-                <h3>Instalasi Kelistrikan</h3>
-                <p>Pemasangan jalur listrik baru, perbaikan konsleting, dan penataan instalasi pengkabelan yang aman sesuai standar keselamatan.</p>
+        <!-- KATEGORI 3: SERVIS HP & KOMPUTER -->
+        <details class="service-card">
+            <summary>
+                <div class="summary-content">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <h3>Servis Komputer & HP</h3>
+                </div>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </summary>
+            <div class="details-content">
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Services hardware & software</li>
+                    <li><i class="fa-solid fa-check"></i> Services HP all tipe</li>
+                </ul>
+                <a href="https://wa.me/6289658818868?text=Halo%20Sabil,%20saya%20butuh%20bantuan%20mengenai%20Servis%20Komputer/HP." class="whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (Servis)
+                </a>
             </div>
+        </details>
 
-            <!-- Layanan 4 -->
-            <div class="service-card">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <h3>Servis HP & Komputer</h3>
-                <p>Perbaikan perangkat lunak maupun keras, mulai dari masalah sistem operasi, pemulihan, hingga penggantian komponen.</p>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2 class="section-title" style="margin-top: 0;">Hubungi Kami</h2>
-            <p>Butuh konsultasi atau ingin menggunakan jasa kami? Diskusikan kebutuhan proyek atau perbaikan Anda sekarang melalui WhatsApp.</p>
-            <!-- Ganti nomor di bawah dengan nomor WhatsApp kamu (format internasional tanpa angka 0 di depan, contoh: 6289658818868) -->
-            <a href="https://wa.me/6289658818868?text=Halo%20Sabil,%20saya%20tertarik%20dengan%20jasa%20yang%20Anda%20tawarkan." class="whatsapp-btn" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
-            </a>
-        </div>
     </div>
 
     <footer>
