@@ -38,7 +38,7 @@
             border-bottom: 4px solid var(--gold);
         }
 
-        /* Desain Logo Baru (Memanjang menampung 3 ikon) */
+        /* Desain Logo Header */
         .logo-container {
             display: inline-flex;
             align-items: center;
@@ -73,7 +73,16 @@
         header p {
             font-size: 13px;
             color: var(--light-gold);
-            margin-top: 10px;
+            margin-top: 8px;
+        }
+
+        /* Keterangan Khusus Jawa Barat */
+        header p.area-tag {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
         }
 
         .container {
@@ -200,7 +209,7 @@
             font-size: 14px;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
             transition: background 0.2s;
-            width: 100%; /* Penuh kiri kanan */
+            width: 100%;
         }
 
         .whatsapp-btn i {
@@ -234,17 +243,18 @@
         <!-- Tulisan SABIL di atas, BUILD & SERVICE di bawah -->
         <h1>SABIL<br><span>BUILD & SERVICE</span></h1>
         <p>Solusi Konstruksi, Optik, & Servis Elektronik</p>
+        <p class="area-tag">(Khusus Daerah Jawa Barat)</p>
     </header>
 
     <div class="container">
         <h2 class="section-title">Layanan Kami</h2>
         <p style="text-align: center; font-size: 13px; color: #666; margin-bottom: 20px;">Ketuk layanan di bawah ini untuk melihat detail</p>
 
-        <!-- KATEGORI 1: RENOVASI & BANGUNAN -->
+        <!-- KATEGORI 1: RENOVASI & BANGUNAN (Ikon diganti Rumah) -->
         <details class="service-card">
             <summary>
                 <div class="summary-content">
-                    <i class="fa-solid fa-trowel-bricks"></i>
+                    <i class="fa-solid fa-house-chimney"></i>
                     <h3>Bangunan & Renovasi</h3>
                 </div>
                 <i class="fa-solid fa-chevron-down arrow"></i>
